@@ -86,7 +86,38 @@ def eliminar_cancion(lista):
     else:
         print(f"La cancion '{titulo}' no se encuentra registrada")
 
+def actualizar_estados(lista):
+    for cancion in lista:
+        if cancion["anio"] >= 2020:
+            cancion["en_rotacion"] = True
+        else:
+            cancion["en_rotacion"] = False
+
+def mostrar_canciones(lista):
+    actualizar_estados(lista)
+
+    print("LISTA DE CANCIONES")
+
+    if len(lista) == 0:
+        print("No se registraron canciones")
+        return
+    for cancion in lista:
+        if cancion["en_rotacion"]:
+            estado_texto = "EN ROTACION"
+        else:
+            estado_texto = "FUERA DE ROTACION"
+
+        print(f"TITULO: {cancion['titulo']}") 
+        print(f"AÑO: {cancion['anio']}") 
+        print(f"DURACION: {cancion['duracion']}")
+        print(f"ESTADO {estado_texto}") 
+        print("********************************") 
+
         
+               
+
+
+
 
 
 
