@@ -1,3 +1,5 @@
+
+
 def validar_titulo():
     while True:
         titulo = input("Ingrese el titulo de la cancion: ")
@@ -47,7 +49,43 @@ def pedir_opcion():
             else:
                 print("El numero debe estar entre el 1 y el 6")
         except ValueError:
-            print("Error: La opcion debe ser un numero entero valido.")        
+            print("Error: La opcion debe ser un numero entero valido.")
+
+def agregar_cancion(lista):
+    print("AGREGAR CANCION")
+
+    titulo = validar_titulo
+    anio = validar_anio
+    duracion = validar_duracion
+
+    nueva_cancion = {
+        "titulo": titulo,
+        "anio": anio,
+        "duracion": duracion,
+        "en_rotacion": False
+    }
+
+    lista.append(nueva_cancion)
+    print(f"La cancion '{titulo}' fue agregada con exito")
+
+def buscar_cancion(lista, titulo_buscar):
+    for posicion in range(len(lista)):
+        if lista[posicion]["titulo"].lower() == titulo_buscar.lower():
+            return posicion
+    return -1
+
+
+
+
+
+
+
+
+
+    
+
+
+                       
     
 
 
