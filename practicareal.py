@@ -26,7 +26,29 @@ def validar_duracion():
             else:
                 print("La duracion debe estar entre 05 y 15.0")
         except ValueError:
-            print("El numero debe ser decimal valido.")        
+            print("El numero debe ser decimal valido.") 
+
+def mostar_menu():
+    print("=====MENU PRINCIPAL=====")
+    print("1. Agregar cancion")
+    print("2. Buscar cancion")
+    print("3. Eliminar cancion")
+    print("4. Actualizar esatdos")
+    print("5. Mostrar canciones")
+    print("6. Salir")
+    print("========================")
+
+def pedir_opcion():
+    while True:
+        try:
+            opcion = int(input("Ingrese una opcion entre el 1 y el 6: "))
+            if 1<= opcion <=6:
+                return opcion
+            else:
+                print("El numero debe estar entre el 1 y el 6")
+        except ValueError:
+            print("Error: La opcion debe ser un numero entero valido.")        
+    
 
 
     
