@@ -30,7 +30,7 @@ def validar_duracion():
         except ValueError:
             print("El numero debe ser decimal valido.") 
 
-def mostar_menu():
+def mostrar_menu():
     print("=====MENU PRINCIPAL=====")
     print("1. Agregar cancion")
     print("2. Buscar cancion")
@@ -55,9 +55,9 @@ def pedir_opcion():
 def agregar_cancion(lista):
     print("AGREGAR CANCION")
 
-    titulo = validar_titulo
-    anio = validar_anio
-    duracion = validar_duracion
+    titulo = validar_titulo()
+    anio = validar_anio()
+    duracion = validar_duracion()
 
     nueva_cancion = {
         "titulo": titulo,
@@ -112,6 +112,45 @@ def mostrar_canciones(lista):
         print(f"DURACION: {cancion['duracion']}")
         print(f"ESTADO {estado_texto}") 
         print("********************************") 
+
+def main():
+    lista_canciones = []
+
+    while True:
+        mostrar_menu()
+        opcion = pedir_opcion()
+
+        if opcion == 1:
+            agregar_cancion(lista_canciones)
+
+        elif opcion == 2:
+            print("BUSCAR CANCION")
+            titulo = input("Ingrese el titulo de la cancion a buscar: ")
+            posicion = buscar_cancion(lista_canciones, titulo)
+
+            if posicion != -1:
+                cancion = lista_canciones[posicion]
+                print(f"Encontrada! Titulo: {cancion['titulo']} | Año: {cancion['anio']} | Duracion: {cancion['duracion']}  ")    
+            else:
+                print(f"La cancion '{titulo}' no se encuentra registrada.")
+
+        elif opcion == 3:
+            eliminar_cancion(lista_canciones)
+
+        elif opcion == 4:
+            actualizar_estados(lista_canciones)
+            print("Estados de rotacion actualizados con exito segun el año")
+
+        elif opcion == 5:
+            mostrar_canciones(lista_canciones)
+
+        elif opcion == 6:
+            print("Gracias por usar el sistema de la radio, sigue escuchando")
+            break
+
+main()
+
+        
 
         
                
