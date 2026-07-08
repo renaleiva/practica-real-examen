@@ -51,6 +51,7 @@ def pedir_opcion():
         except ValueError:
             print("Error: La opcion debe ser un numero entero valido.")
 
+
 def agregar_cancion(lista):
     print("AGREGAR CANCION")
 
@@ -68,11 +69,27 @@ def agregar_cancion(lista):
     lista.append(nueva_cancion)
     print(f"La cancion '{titulo}' fue agregada con exito")
 
+
 def buscar_cancion(lista, titulo_buscar):
     for posicion in range(len(lista)):
         if lista[posicion]["titulo"].lower() == titulo_buscar.lower():
             return posicion
     return -1
+
+def eliminar_cancion(lista):
+    print("ELIMINAR CANCION")
+    titulo = input("Ingrese el titulo de la cancion que desea eliminar: ")
+    posicion = buscar_cancion(lista, titulo)
+    if posicion != -1:
+        lista.pop(posicion)
+        print(f"La cancion '{titulo}' ha sido eliminada con exito")
+    else:
+        print(f"La cancion '{titulo}' no se encuentra registrada")
+
+        
+
+
+
 
 
 
